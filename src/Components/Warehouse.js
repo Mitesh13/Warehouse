@@ -3,7 +3,7 @@ import "../warehouse.css"
 
 const Warehouse = ({warehouse}) => {
     return (
-        <Link to={{pathname: `view/${warehouse.id}`, warehouse: warehouse}}>
+        <Link to={{pathname: `/Warehouse/view/${warehouse.id}`, warehouse: warehouse}}>
 
             <div className="warehouse">
             <h2>{warehouse.name}</h2>
