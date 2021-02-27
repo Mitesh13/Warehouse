@@ -12,13 +12,13 @@ const WarehouseView = (props) => {
          * Need to host api using express to send POST request
         */
 
-        // await fetch(`../warehouses.json`,{
-        //     method:'POST',
-        //     headers:{
-        //         "Content-type": "application/json; charset=UTF-8"
-        //     },
-        //     body: JSON.stringify(warehouse)
-        // }).catch((e)=>console.log(e))
+        await fetch(`../warehouses.json`,{
+            method:'POST',
+            headers:{
+                "Content-type": "application/json; charset=UTF-8"
+            },
+            body: JSON.stringify(warehouse)
+        }).catch((e)=>console.log(e))
 
         
     }
