@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Warehouses from './Components/Warehouses'
 import WarehouseView from './Components/WarehouseView'
 import Header from './Components/Header'
-import './app.css'
+import './App.css'
 
 function App() {
 
