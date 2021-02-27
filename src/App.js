@@ -10,7 +10,7 @@ function App() {
   const [warehouses,setWarehouses] = useState([])
   
   const getWarehouses = async () =>{
-    const res = await fetch('warehouses.json',
+    const res = await fetch('/Warehouse/warehouses.json',
     {
       headers : { 
         'Content-Type': 'application/json',
@@ -67,14 +67,14 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Route path='/' exact render={(props)=>(
+        <Route path='/Warehouse' exact render={(props)=>(
           <>
             <Header onSearch={onSearch()} applyFilter={applyFilter}/>
             <Warehouses warehouses={warehouses} />
           </>
         )}/>
         
-        <Route path="/warehouse/" component={WarehouseView} />
+        <Route path="/Warehouse/view" component={WarehouseView} />
         
       </div>
     </Router>
