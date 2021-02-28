@@ -23,7 +23,7 @@ function App() {
 
   const onSearch = () => {
     let id
-    return async function debounced( warehouseName) {
+    return async function debounced(warehouseName) {
       clearTimeout(id)
       id = setTimeout(async()=>{
         
@@ -49,7 +49,13 @@ function App() {
     setWarehouses(data.filter(warehouse => 
       (city ? warehouse.city.toLowerCase().includes(city.toLowerCase()) : true) &&
       (cluster ? warehouse.cluster.toLowerCase().includes(cluster.toLowerCase()) : true) &&
-      (rangeFrom ? warehouse.space_available >= rangeFrom && warehouse.space_available <= rangeTo: true)
+      // (
+        // (!rangeTo ? warehouse.space_available >= rangeFrom : false) ||
+        (rangeFrom && rangeTo ? warehouse.space_available >= rangeFrom && warehouse.space_available <= rangeTo: true) &&
+        (rangeFrom ? warehouse.space_available >= rangeFrom : true) &&
+        (rangeTo ? warehouse.space_available <= rangeTo : true) 
+        
+      // )
       ))
           
   }
