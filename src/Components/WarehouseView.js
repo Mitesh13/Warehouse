@@ -10,15 +10,16 @@ const WarehouseView = (props) => {
         setEditable(!editable)
         /**  
          * Need to host api using express to send POST request
-        */
+        
 
-        await fetch(`../warehouses.json`,{
-            method:'PUT',
-            headers:{
-                "Content-type": "application/json; charset=UTF-8"
-            },
-            body: JSON.stringify(warehouse)
-        }).catch((e)=>console.log(e))
+            await fetch(`../warehouses.json`,{
+                method:'PUT',
+                headers:{
+                    "Content-type": "application/json; charset=UTF-8"
+                },
+                body: JSON.stringify(warehouse)
+            }).catch((e)=>console.log(e))
+        */
     }
 
     
@@ -37,7 +38,7 @@ const WarehouseView = (props) => {
                                 
                                 return(
                                     <div key={key} className={!editable?"table":""}>
-                                        <p >{key}:</p> <p> {!editable?""+warehouse[key]:<input type="text" value={warehouse[key]} onChange={(e)=>setWarehouse({...warehouse,[key]:e.target.value})}/>}</p>          
+                                        <p >{key}:</p> <p> {!editable?""+warehouse[key]:<input type="text" className="edit-field" value={warehouse[key]} onChange={(e)=>setWarehouse({...warehouse,[key]:e.target.value})}/>}</p>          
                                     </div>
                                 )
                             })  
@@ -94,8 +95,10 @@ const CustomFieldContainer = ({warehouse,setWarehouse,setAddField}) =>{
         if(key)
         {
             key = key.replaceAll(" ","_")
-            setWarehouse({...warehouse,[key]:value})
+            setWarehouse({...warehouse,[key]:value?value:"null"})
         }
+        else
+            alert("Please enter values")
             
         
     }

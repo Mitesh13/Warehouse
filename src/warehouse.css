@@ -67,7 +67,7 @@
         width: 50vh;
         word-break: break-all;
     }
-    input[type="text"],input[type="number"],select
+    .edit-field,select
     {
         width: 500px!important;
     }
